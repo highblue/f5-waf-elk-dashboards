@@ -14,6 +14,7 @@ It is assumed you will be running ELK using the Quick Start directions below. Th
 ### Deploying ELK Stack
 
 注意安装Docker-ce & docker-compose
+
 Use docker-compose to deploy your own ELK stack.
 ```
 $ cd /f5-waf-elk-dashboards
@@ -24,6 +25,7 @@ $ docker-compose -f docker-compose.yaml up -d
 **NOTE**
 
 这个地方还是需要注意下，我的虚拟机初始设定为4GB内存，后来一直无法启动；后改成8GB也一直限定4GB，所以需要使用如下的方式突破limit
+
 The ELK stack docker container will likely exceed the default host's virtual memory system limits. Use [these directions](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/vm-max-map-count.html#vm-max-map-count) to increase this limit on the docker host machine. If you do not, the ELK container will continually restart itself and never fully initialize.
 
 ---
@@ -34,6 +36,7 @@ Import dashboards to kibana through UI (Kibana->Management->Saved Objects) or us
 ```
 export KIBANA_URL=https://your.kibana:5601
 # 这里我将https 改成了http
+
 jq -s . kibana/overview-dashboard.ndjson | jq '{"objects": . }' | \
 curl -k --location --request POST "$KIBANA_URL/api/kibana/dashboards/import" \
     --header 'kbn-xsrf: true' \
