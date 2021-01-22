@@ -47,12 +47,12 @@ The ELK stack docker container will likely exceed the default host's virtual mem
 ---
 
 容器起来以后，注意看下系统时间和容器内的时间是否一致，否则ELK查询时候会出现时间不对。
-
+```
 docker exec -it <container name> /bin/bash
 cp /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 #设定时区
-date 确认时间
-
+date
+```
 ### Dashboards Installation
 Import dashboards to kibana through UI (Kibana->Management->Saved Objects) or use API calls below.
 
