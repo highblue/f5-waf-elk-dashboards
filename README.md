@@ -13,7 +13,7 @@ It is assumed you will be running ELK using the Quick Start directions below. Th
 ## Quick Start
 ### Deploying ELK Stack
 
-注意安装Docker-ce & docker-compose
+**NOTE** 注意安装Docker-ce & docker-compose
 再次注意：如果是Ubuntu 18.04版本的话，直接按照官方文档安装最新版1.28.0会出现python lib缺失的问题，目前无workaround。
 建议安装1.21版本
 
@@ -44,6 +44,13 @@ sysctl vm.max_map_count
 The ELK stack docker container will likely exceed the default host's virtual memory system limits. Use [these directions](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/vm-max-map-count.html#vm-max-map-count) to increase this limit on the docker host machine. If you do not, the ELK container will continually restart itself and never fully initialize.
 
 ---
+
+容器起来以后，注意看下系统时间和容器内的时间是否一致，否则ELK查询时候会出现时间不对。
+
+docker exec -it <container name> /bin/bash
+cp /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
+#设定时区
+date 确认时间
 
 ### Dashboards Installation
 Import dashboards to kibana through UI (Kibana->Management->Saved Objects) or use API calls below.
