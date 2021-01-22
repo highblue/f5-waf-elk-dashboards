@@ -23,13 +23,13 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-c
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
+---
 
 Use docker-compose to deploy your own ELK stack.
 ```
 $ cd /f5-waf-elk-dashboards
 $ docker-compose -f docker-compose.yaml up -d
 ```
-
 ---
 **NOTE**
 
