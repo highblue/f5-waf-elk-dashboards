@@ -14,6 +14,14 @@ It is assumed you will be running ELK using the Quick Start directions below. Th
 ### Deploying ELK Stack
 
 注意安装Docker-ce & docker-compose
+再次注意：如果是Ubuntu 18.04版本的话，直接按照官方文档安装最新版1.28.0会出现python lib缺失的问题，目前无workaround。
+建议安装1.21版本
+
+```
+sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+```
 
 Use docker-compose to deploy your own ELK stack.
 ```
@@ -25,6 +33,12 @@ $ docker-compose -f docker-compose.yaml up -d
 **NOTE**
 
 这个地方还是需要注意下，我的虚拟机初始设定为4GB内存，后来一直无法启动；后改成8GB也一直限定4GB，所以需要使用如下的方式修改内存限制。
+直接修改
+sysctl -w vm.max_map_count=262144
+如果有问题，直接在conf文件中增加上面那句
+/etc/sysctl.conf
+重启后检查是否成功：
+sysctl vm.max_map_count
 
 The ELK stack docker container will likely exceed the default host's virtual memory system limits. Use [these directions](https://www.elastic.co/guide/en/elasticsearch/reference/5.0/vm-max-map-count.html#vm-max-map-count) to increase this limit on the docker host machine. If you do not, the ELK container will continually restart itself and never fully initialize.
 
