@@ -14,6 +14,7 @@ It is assumed you will be running ELK using the Quick Start directions below. Th
 ### Deploying ELK Stack
 
 **NOTE** 注意安装Docker-ce & docker-compose
+我建议用CentOS 7安装
 再次注意：如果是Ubuntu 18.04版本的话，直接按照官方文档安装最新版1.28.0会出现python lib缺失的问题，目前无workaround。
 建议安装1.21版本
 
