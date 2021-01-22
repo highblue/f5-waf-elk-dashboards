@@ -17,6 +17,7 @@ It is assumed you will be running ELK using the Quick Start directions below. Th
 再次注意：如果是Ubuntu 18.04版本的话，直接按照官方文档安装最新版1.28.0会出现python lib缺失的问题，目前无workaround。
 建议安装1.21版本
 
+以下内容是直接安装
 ```
 sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
