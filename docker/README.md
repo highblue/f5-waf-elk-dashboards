@@ -9,6 +9,7 @@ Centos7 containing:
 - policy/default_policy.json
  
 Run:
+```
 - sudo docker build -t nginx_app_protect .
 - sudo docker run -itd --name nginx_app_protect_container -v `pwd`/policy:/policy -p 8080:8080 nginx_app_protect
 - Press WEB button above to access web browser
@@ -28,3 +29,4 @@ To run with updated signatures:
 APP_PROTECT { "event": "configuration_load_success", "attack_signatures_package":{"revision_datetime":"2020-03-16T14:11:52Z","version":"2020.0316"},"completed_successfully":true}
 - Send attack via URI parameter: /wp-admin/admin-post.php?do_reset_wordpress
 - Get Blocking page.
+```
